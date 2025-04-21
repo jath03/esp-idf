@@ -171,6 +171,17 @@ static inline void rtcio_ll_set_drive_capability(int rtcio_num, uint32_t strengt
 }
 
 /**
+ * @brief Set RTC GPIO pad drive capability during sleep
+ *
+ * @param rtcio_num The index of rtcio. 0 ~ MAX(rtcio).
+ * @param strength Drive capability of the pad. Range: 0 ~ 3.
+ */
+static inline void rtcio_ll_set_drive_capability_sleep(int rtcio_num, uint32_t strength)
+{
+    LP_IO.gpio[rtcio_num].mcu_drv = strength;
+}
+
+/**
  * @brief Get RTC GPIO pad drive capability.
  *
  * @param rtcio_num The index of rtcio. 0 ~ MAX(rtcio).
